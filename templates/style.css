@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav a h2{
+    color: blue;
+}
+.link{
+    background-color: blue;
+    border-radius: 30px;
+    
+
+}
+.link:hover{
+    background-color:whitesmoke;
+}
+.nav-item{
+    padding: 30px 30px;
+}
+.animation-box{
+    background-image: url("background.jpeg");
+    background-size: cover;
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-top: 120px;
+
+    
+}
+.typing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background:blue;
+    animation: cursorBlink 0.8s steps(3) infinite;
+    justify-content: center;
+    text-align: center;
+}
+@keyframes cursorBlink {
+
+    0%,
+    75% {
+        opacity: 1;
+    }
+
+    76%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.typing {
+    position: relative;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #3333);
+    
+}
+
+.typing h2 {
+    position: relative;
+    color: blue;
+    letter-spacing: 5px;
+    font-size: 4rem;
+    overflow: hidden;
+    margin-bottom: 0;
+    animation: type 5s steps(11) infinite;
+    justify-content: center;
+    text-align: center;
+}
+
+@keyframes type {
+
+    0%,
+    100% {
+        width: 0px;
+    }
+
+    30%,
+    60% {
+        width: 394.09px;
+    }
+}
+
+@media(max-width: 330px) {
+    .typing h2 {
+        font-size: 3rem;
+        animation: type 5s steps(10) infinite;
+    }
+
+    @keyframes type {
+
+        0%,
+        100% {
+            width: 0px;
+        }
+
+        30%,
+        60% {
+            width: 305px;
+        }
+    }
+}
+
+.footer-content{
+    text-align: center;
+}
+.col{
+    background-color:blue;
+    border-radius: 30px;
+    color: white;
+    
+}
+
+.container{
+    margin-top: 150px;
+    
+    
+}
+.custom-rounded{
+    border-radius: 30px;
+    background-color:#343a40; 
+    color: white;
+    
+    
+  }
+  
+.custom-card{
+    background-color:#343a40; 
+    border-radius: 40px;
+    
+    
+}
+
+
