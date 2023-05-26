@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unmask</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
@@ -19,16 +19,16 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link link" href="#contact">Contact</a>
+                  <a class="nav-link link" href="{{url_for('home')}}#contact">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link link" href="#about">About</a>
+                  <a class="nav-link link" href="{{url_for('home')}}#about">About</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link link" href="#">Donate</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link link" href="#">Login</a>
+                  <a class="nav-link link" href="{{url_for('login')}}" aria-hidden="true">Login</a>
                 </li>
               </ul>
             </div>
@@ -41,19 +41,19 @@
                         class="img-fluid" alt="Sample image">
                     </div>
               <div class="col-md-6 ">
-                <div class="card">
+                <div class="">
                   <div class="card-header bg-dark text-white text-center custom-card">
                     <h4>Login</h4>
                   </div>
                   <div class="card-body custom-rounded my-5">
-                    <form>
+                    <form method="post">
                       <div class="form-group">
                         <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" required>
                       </div>
                       <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
+                        <input type="password" class="form-control" id="password" placeholder="Password" required>
                       </div>
                       <div class="form-check mb-3">
                         <input type="checkbox" class="form-check-input" id="remember">
@@ -63,7 +63,7 @@
                     </form>
                     <br>
                     <a href="">Forgot password?</a>
-                    <a href="">Need an account?</a>
+                    <a href="{{url_for('signin')}}">Need an account?</a>
 
                   </div>
                 </div>

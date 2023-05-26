@@ -4,8 +4,7 @@ from model import *
 from main import *
 
 
-with app.app_context():
-    db.create_all()
+
 
 @app.route("/add",methods=["POST","GET"])
 
@@ -46,4 +45,20 @@ def pay():
 @app.route('/logout',methods=["POST","GET"])
 def logout():
     pass
+
+@app.route('/', methods = ["POST","GET"])
+def home():
+    if request.method=='POST':
+        #write a script to send email
+        pass
+
+    return render_template("main.html")
+    
+@app.route('/dashboard', methods = ["POST","GET"])
+def dashboard():
+    if request.method=='POST':
+        #write a script to send email
+        pass
+
+    return render_template("dashboard.html") 
 

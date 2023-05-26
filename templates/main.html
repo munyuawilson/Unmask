@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unmask</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet">
+    
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
@@ -19,16 +22,16 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link link" href="#contact">Contact</a>
+                  <a class="nav-link link" href="{{url_for('home')}}#contact">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link link" href="#about">About</a>
+                  <a class="nav-link link" href="{{url_for('home')}}#about">About</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link link" href="#">Donate</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link link" href="#">Login</a>
+                  <a class="nav-link link" href="{{url_for('login')}}">Login</a>
                 </li>
               </ul>
             </div>
@@ -38,116 +41,75 @@
   
   <div class="container-fluid animation-box my-10">
     <div class="typing">
-        <h2 class="text-uppercase">Creating..</h2>
+        <p class="text-uppercase">Introducing Unmask: Unveil the Truth and Safeguard the Online World
+
+        </p>
+        
     </div>
-      
+    
+    
   </div>
 
 
  <section class="mb-4 my-5" id="about">
+    <div class="container">
     <h2 class="h1-responsive font-weight-bold text-center my-4">About</h2>
      <div class="row">
-         <div class="col mx-5">
-             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, beatae impedit odio magni obcaecati placeat minus eligendi! In ea quo voluptatibus dolore quisquam quod eos, consequatur amet vitae id maxime!
+         <div class="col mx-5 my-5">
+            
+            
+            <h2><img src="/static/assets/writing.png" alt="" height="40px">   Record Online Criminals</h2>
+            <p class="col-pa">Unmask allows you to play an active role in combating cybercrime. By creating an account on our platform, you gain the ability to document the activities and identities of online criminals. Whether it's an email scammer, a hacker, or a fraudulent website, you can contribute to the collective effort of exposing their nefarious deeds. Together, we can create a comprehensive database of these criminals to aid law enforcement agencies and individuals seeking justice.</p>
+           
 
          </div>
-         <div class="col mx-5">
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur delectus dignissimos unde quidem? Necessitatibus suscipit sed natus eum! Atque laboriosam quos ratione aspernatur magni et facilis ipsum sunt eveniet repellendus!
+         <div class="col mx-5 my-5">
+            <h2><img src="/static/assets/search.png" alt="" height="40px"> Search and Unveil</h2>
+            <p class="col-pa">Unmask provides a powerful search engine that enables you to uncover the hidden details of online criminals. Using our intuitive interface, you can conduct thorough investigations by inputting various parameters such as usernames, email addresses, IP addresses, or any other relevant information. Our system will then scour our extensive database, providing you with valuable insights and potential connections to uncover the truth. Stay one step ahead of online criminals with Unmask.</p>
+            
+
          </div>
+
      </div>
+     
+        
+     <div class="row my-5">
+         <div class="col mx-5 my-5">
+            <h2><img src="/static/assets/refer.png" alt="" height="40px"> Community Collaboration</h2>
+            <p class="col-pa">Unmask fosters a vibrant community of individuals dedicated to making the internet a safer place. Connect and collaborate with like-minded users, exchange knowledge, and share your experiences. Through collective intelligence, we can enhance the effectiveness of our efforts, making it increasingly difficult for online criminals to escape justice. Unmask allows you to be part of this proactive community, working together for a common cause.</p>
+            
+
+         </div>
+         <div class="col mx-5 my-5">
+            <h2><img src="/static/assets/newspaper.png" alt="" height="40px"> Anonymity and Privacy</h2>
+            <p class="col-pa">At Unmask, we understand the importance of maintaining your anonymity and privacy. Your personal information and identity will always remain confidential. We employ the latest security measures to protect your data and ensure a secure browsing experience. Feel reassured that your contributions to Unmask are entirely private and secure.</p>
+            
+
+         </div>
+        
+     </div>
+    </div>
  </section>
   <section class="mb-4" id='contact'>
-
-    <!--Section heading-->
-    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
-    <!--Section description-->
-    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-        a matter of hours to help you.</p>
-
-    <div class="row">
-
-        <!--Grid column-->
-        <div class="col-md-9 mb-md-0 mb-5">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-
-                <!--Grid row-->
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="name" name="name" class="form-control">
-                            <label for="name" class="">Your name</label>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="email" name="email" class="form-control">
-                            <label for="email" class="">Your email</label>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-                <!--Grid row-->
-
-                <!--Grid row-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="md-form mb-0">
-                            <input type="text" id="subject" name="subject" class="form-control">
-                            <label for="subject" class="">Subject</label>
-                        </div>
-                    </div>
-                </div>
-                <!--Grid row-->
-
-                <!--Grid row-->
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-12">
-
-                        <div class="md-form">
-                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                            <label for="message">Your message</label>
-                        </div>
-
-                    </div>
-                </div>
-                <!--Grid row-->
-
-            </form>
-
-            <div class="text-center text-md-left">
-                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
-            </div>
-            <div class="status"></div>
+<div class="container center">
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact</h2>
+    <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your name">
         </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-md-3 text-center">
-            <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p>San Francisco, CA 94126, USA</p>
-                </li>
-
-                <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                    <p>+ 01 234 567 89</p>
-                </li>
-
-                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                    <p>contact@mdbootstrap.com</p>
-                </li>
-            </ul>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email">
         </div>
-        <!--Grid column-->
-
-    </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      
+</div>
 
 </section>
 
