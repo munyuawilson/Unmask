@@ -26,13 +26,15 @@ class Conmen(db.Model):
     social_media = db.Column(db.String(120))
     reason = db.Column(db.String(120))
     image=db.Column(db.LargeBinary)
-    def __init__(self,name,number,email,password):
+    def __init__(self,name,number,email,social_media,reason,image):
         
         self.name=name 
         
         self.number=number
         self.email=email
-        self.password=password
+        self.social_media=social_media
+        self.reason=reason
+        self.image=image
 
 
     

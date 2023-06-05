@@ -1,4 +1,4 @@
-from flask import request,render_template,redirect
+from flask import request,render_template,redirect,session
 
 from model import Users,db,Conmen
 from main import app
@@ -20,7 +20,7 @@ def add():
         reason = request.form.get('reason')
         image=request.files['image']
         
-        new_con=Conmen(name=name,number=number,email=email,social_media=social_media,reason=reason, image=image)
+        new_con=Conmen(name=name,number=number,email=email,social_media=social_media,reason=reason, image=image.read())
         db.session.add(new_con)
         db.session.commit()
 
@@ -52,8 +52,9 @@ def dashboard():
     if request.method=='POST':
         #write a script to send email
         pass
-
-    return render_template("dashboard.html") 
+    name=session['username']
+    
+    return render_template("dashboard.html",name=name) 
 
 @app.route('/pay', methods = ["POST","GET"])
 def pay():

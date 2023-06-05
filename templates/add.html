@@ -4,33 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>add</title>
+    <title>Add</title>
+    
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    <div>
-    <form  method="post">
-
-        <label for="name">name</label>
-        <input type="text"> <br>
-        <label>
-            number
-        </label>
-        <input type="number" name="" id=""><br>
-        <label for="email">Email</label>
-        <input type="email" name="" id=""><br>
-        <label for="social">social Media Link</label>
-        <input type="text" name="" id=""><br>
-        <label for="reason">Reason</label>
-        <input type="text" name="" id=""><br>
-        <label for="">image evidence</label>
-        <input type="file" >
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+        <a class="navbar-brand title" href="{{url_for('dashboard')}}">Welcome {{name}}</a> <span>Credits: 32</span>
         
-        <input type="submit" value="Submit">
-        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link link" href="{{url_for('search')}}">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="{{url_for('add')}}">Add to database</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="{{url_for('pay')}}">Pay</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="{{url_for('logout')}}">LogOut</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div class="container mt-5" id="padding">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="number">Number</label>
+                <input type="number" class="form-control" id="number" name="number">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="social">Social Media Link</label>
+                <input type="text" class="form-control" id="social" name="social">
+            </div>
+            <div class="form-group">
+                <label for="reason">Reason</label>
+                <input type="text" class="form-control" id="reason" name="reason">
+            </div>
+            <div class="form-group">
+                <label for="image">Image Evidence</label>
+                <input type="file" class="form-control-file" id="image" name="image">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 
-
-    </form>
-</div>
-    
+    <!-- Bootstrap JS (optional, if you need to use Bootstrap's JavaScript features) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

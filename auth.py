@@ -18,7 +18,7 @@ def login():
                 session["username"]=query.name
                 print("graeat")
 
-                redirect('/dashboard')
+                return redirect('/dashboard')
         else:
             print("Wrong Email or Password!")
     return render_template("login.html")
