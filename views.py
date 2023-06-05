@@ -1,10 +1,12 @@
 from flask import request,render_template,redirect
 
-from model import *
-from main import *
+from model import Users,db,Conmen
+from main import app
 
 
 
+with app.app_context():
+    db.create_all()
 
 @app.route("/add",methods=["POST","GET"])
 
@@ -16,35 +18,26 @@ def add():
         email = request.form.get('email')
         social_media = request.form.get('socials')
         reason = request.form.get('reason')
-
-        new_con=Conmen(name=name,number=number,email=email,social_media=social_media,reason=reason)
+        image=request.files['image']
+        
+        new_con=Conmen(name=name,number=number,email=email,social_media=social_media,reason=reason, image=image)
         db.session.add(new_con)
         db.session.commit()
 
         
-        #add images for proof
-        #images can be stored in compressed folders
-
-        #add this to database
-
-        #save to database
+        
     return render_template('add.html')
 @app.route('/search',methods = ['POST',"GET"])
 def search():
-    number=request.form.get('number')
-
-
-    number=Conmen.query.filter_by(number=number).first()
-    print(number.email)
-
-    return number.email
-@app.route('/pay', methods = ["POST","GET"])
-def pay():
-    #payment for the search
     pass
+        
+
+    return render_template("search.html")
+
 @app.route('/logout',methods=["POST","GET"])
 def logout():
     pass
+    return redirect("/")
 
 @app.route('/', methods = ["POST","GET"])
 def home():
@@ -61,4 +54,12 @@ def dashboard():
         pass
 
     return render_template("dashboard.html") 
+
+@app.route('/pay', methods = ["POST","GET"])
+def pay():
+    if request.method=='GET':
+        #write a script to send email
+        pass
+
+    return render_template("pay.html") 
 

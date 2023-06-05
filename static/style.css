@@ -6,7 +6,11 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 nav a h2{
     color: blue;
 }
@@ -46,8 +50,8 @@ nav a h2{
     background-color:black;
     border-radius: 30px;
     color: white;
-    height: 70vh;
     
+    justify-content: center;
     
 }
 .col h2{
@@ -103,4 +107,23 @@ nav a h2{
     font-size: 24px;
     font-weight: bold;
   }
- 
+ .main-body-dash{
+    
+    padding-top: 30px;
+ }
+ span{
+    color: green;
+ }
+ .search{
+    justify-content: center;
+    text-align: center;
+    padding-top: 20vh;
+ }
+ .search-bar{
+    
+    border-radius: 30px;
+    height: 40px;
+ }
+ nav a{
+    color: red;
+ }

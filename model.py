@@ -1,7 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
-from main import app
 
-db=SQLAlchemy(app)
+
+
+db=SQLAlchemy()
 
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -24,6 +25,14 @@ class Conmen(db.Model):
     email = db.Column(db.String(120))
     social_media = db.Column(db.String(120))
     reason = db.Column(db.String(120))
+    image=db.Column(db.LargeBinary)
+    def __init__(self,name,number,email,password):
+        
+        self.name=name 
+        
+        self.number=number
+        self.email=email
+        self.password=password
 
 
     
