@@ -44,10 +44,36 @@
         </div>
         
     </form>
+
         
 </div>
 
+{% if search_result %}
+    <div class="card text-center">
+        <!-- Display the search result here -->
+        <h5 class="card-title">Name: {{search_result.name }}</h5>
+        <p>Image: <img src="data:image/jpg;base64,{{ image }}"  alt="image" height="40"></p> 
+        
+        Number: {{search_result.number }} <br>
+        <p class="card-text">Reason: {{ search_result.reason }}</p>
 
+      
+
+
+        
+
+    </div>
+{% endif %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="container">
+            {% for message in messages %}
+                <div class="container">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
 
     
       

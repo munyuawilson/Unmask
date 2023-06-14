@@ -38,11 +38,11 @@
         <form method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="number">Number</label>
-                <input type="number" class="form-control" id="number" name="number">
+                <input type="number" class="form-control" id="number" name="number" required>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -54,11 +54,11 @@
             </div>
             <div class="form-group">
                 <label for="reason">Reason</label>
-                <input type="text" class="form-control" id="reason" name="reason">
+                <input type="text" class="form-control" id="reason" name="reason" required>
             </div>
             <div class="form-group">
                 <label for="image">Image Evidence</label>
-                <input type="file" class="form-control-file" id="image" name="image">
+                <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

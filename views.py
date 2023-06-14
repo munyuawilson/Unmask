@@ -1,8 +1,11 @@
-from flask import request,render_template,redirect,session
+from flask import request,render_template,redirect,session,flash
 from flask_login import login_user, logout_user, current_user, login_required
 from model import Users,db,Conmen
 from main import app
 from sendemail import sendEmail
+import base64
+import imghdr
+
 
 
 with app.app_context():
@@ -32,14 +35,26 @@ def add():
 @app.route('/search',methods = ['POST',"GET"])
 @login_required
 def search():
-    
-    username=session['username'] 
+    username=session['username']
+    if request.method=="POST":
+        search=request.form.get("search")
+        search_query=Conmen.query.filter_by(number=search).first()
+        if search_query:
+            image=search_query.image
+            image = base64.b64encode(image).decode('utf-8')
+            
+
+            return render_template("search.html", search_result=search_query,username=username,image=image)
+        else:
+            return flash("No user")
+            
+     
 
     return render_template("search.html",username=username)
 
 @app.route('/logout',methods=["POST","GET"])
 def logout():
-    pass
+    logout_user()
     return redirect("/")
 
 @app.route('/', methods = ["POST","GET"])

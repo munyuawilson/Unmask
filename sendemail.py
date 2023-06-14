@@ -8,9 +8,9 @@ def sendEmail(name,sender_email,message):
     # Email configuration
     
     receiver_email = 'wmunyua4@gmail.com'
-    subject = f'Query from Unmask {name}'
+    subject = f'{name}: Query from Unmask '
     
-
+    message=sender_email + "\n" + message
     # Create a multipart message
     msg = MIMEMultipart()
     msg['From'] = sender_email

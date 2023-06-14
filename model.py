@@ -1,23 +1,26 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
 
 
 
 db=SQLAlchemy()
 
-class Users(db.Model):
+class Users(db.Model,UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name=db.Column(db.String(100))
     number=db.Column(db.Integer)
     email=db.Column(db.String(100))
     password=db.Column(db.String(120))
-    def __init__(self,name,number,email,password):
+
+    def __init__(self,name,number,email,password,is_active=True):
         
         self.name=name 
         
         self.number=number
         self.email=email
         self.password=password
-
+        self.is_active = is_active
+    
 class Conmen(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
