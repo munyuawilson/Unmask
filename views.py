@@ -1,14 +1,15 @@
 from flask import request,render_template,redirect,session
-
+from flask_login import login_user, logout_user, current_user, login_required
 from model import Users,db,Conmen
 from main import app
-
+from sendemail import sendEmail
 
 
 with app.app_context():
     db.create_all()
 
 @app.route("/add",methods=["POST","GET"])
+@login_required
 
 def add():
     if request.method == "POST":
@@ -24,15 +25,17 @@ def add():
         db.session.add(new_con)
         db.session.commit()
 
+    username=session['username']   
         
-        
-    return render_template('add.html')
-@app.route('/search',methods = ['POST',"GET"])
-def search():
-    pass
-        
+    return render_template('add.html',username=username)
 
-    return render_template("search.html")
+@app.route('/search',methods = ['POST',"GET"])
+@login_required
+def search():
+    
+    username=session['username'] 
+
+    return render_template("search.html",username=username)
 
 @app.route('/logout',methods=["POST","GET"])
 def logout():
@@ -43,24 +46,31 @@ def logout():
 def home():
     if request.method=='POST':
         #write a script to send email
-        pass
+        name=request.form.get('name')
+        sender_email=request.form.get('email')
+        message=request.form.get('message')
+        sendEmail(name,sender_email,message)
+        
+        
 
     return render_template("main.html")
     
 @app.route('/dashboard', methods = ["POST","GET"])
+@login_required
 def dashboard():
     if request.method=='POST':
         #write a script to send email
         pass
-    name=session['username']
+    username=session['username']
     
-    return render_template("dashboard.html",name=name) 
+    return render_template("dashboard.html",username=username) 
 
 @app.route('/pay', methods = ["POST","GET"])
+@login_required
 def pay():
-    if request.method=='GET':
+    if request.method=='POST':
         #write a script to send email
         pass
-
-    return render_template("pay.html") 
+    username=session['username']
+    return render_template("pay.html",username=username) 
 

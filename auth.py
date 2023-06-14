@@ -1,5 +1,6 @@
 
 from flask import request,render_template,flash,session,redirect
+from flask_login import login_user, logout_user, current_user, login_required
 from model import Users,db
 from main import app
 
@@ -16,7 +17,9 @@ def login():
         if query:
             if query.password==password:
                 session["username"]=query.name
-                print("graeat")
+                user = Users.query.get(query.id)
+                login_user(user)
+                
 
                 return redirect('/dashboard')
         else:
@@ -39,8 +42,8 @@ def signin():
             new_user=Users(name=name, number=number,email=email,password=password)
             db.session.add(new_user)
             db.session.commit()
-            print("recorded")
-            redirect("/dashboard")
+            
+            return redirect("/dashboard")
 
 
     return render_template("signup.html")
