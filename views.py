@@ -23,10 +23,13 @@ def add():
         social_media = request.form.get('socials')
         reason = request.form.get('reason')
         image=request.files['image']
-        
-        new_con=Conmen(name=name,number=number,email=email,social_media=social_media,reason=reason, image=image.read())
-        db.session.add(new_con)
-        db.session.commit()
+        search_query=Conmen.query.filter_by(number=number).first()
+        if search_query:
+            flash("User already there!")
+        else:
+            new_con=Conmen(name=name,number=number,email=email,social_media=social_media,reason=reason, image=image.read())
+            db.session.add(new_con)
+            db.session.commit()
 
     username=session['username']   
         

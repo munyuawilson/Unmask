@@ -34,6 +34,15 @@
           </ul>
         </div>
       </nav>
+      {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="container">
+            {% for message in messages %}
+                <div class="container">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
     <div class="container mt-5" id="padding">
         <form method="post" enctype="multipart/form-data">
             <div class="form-group">
