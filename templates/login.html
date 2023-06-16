@@ -33,6 +33,19 @@
               </ul>
             </div>
           </nav>
+          {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="container">
+            {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>Warning!</strong> {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+                
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
           <div class="container">
             <div class="row justify-content-center mt-5">
                 <div class="row d-flex justify-content-center align-items-center h-100">

@@ -12,7 +12,7 @@
     <!-- Header -->
     
     <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
-      <a class="navbar-brand title" href="{{url_for('dashboard')}}">Welcome {{username}}</a> <span>Credits: 32</span>
+      <a class="navbar-brand title" href="{{url_for('dashboard')}}">Welcome {{username}}</a> <span>Credits: {{credits}}</span>
       
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@
 <div class="container search my-20">
     <form method="post">
         <div class="form-group">
-            <input type="text" name="search" placeholder="    search number..." class='search-bar'  required>
+            <input type="search" name="search" placeholder="    search number..." class='search-bar'  required>&nbsp &nbsp &nbsp &nbsp
             <input type="submit" value="Submit" class='btn  btn-primary'>
         </div>
         
@@ -52,7 +52,7 @@
     <div class="card text-center">
         <!-- Display the search result here -->
         <h5 class="card-title">Name: {{search_result.name }}</h5>
-        <p>Image: <img src="data:image/jpg;base64,{{ image }}"  alt="image" height="40"></p> 
+        <p>Image: <img src="data:image/png;base64,{{ image }}"  alt="image" height="40"></p> 
         
         Number: {{search_result.number }} <br>
         <p class="card-text">Reason: {{ search_result.reason }}</p>
@@ -69,11 +69,16 @@
     {% if messages %}
         <div class="container">
             {% for message in messages %}
-                <div class="container">{{ message }}</div>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>Warning!</strong> {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             {% endfor %}
         </div>
     {% endif %}
-{% endwith %}
+    {% endwith %}
+
+
 
     
       

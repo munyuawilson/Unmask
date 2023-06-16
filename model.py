@@ -11,6 +11,7 @@ class Users(db.Model,UserMixin):
     number=db.Column(db.Integer)
     email=db.Column(db.String(100))
     password=db.Column(db.String(120))
+    credits=db.Column(db.Integer)
 
     def __init__(self,name,number,email,password,is_active=True):
         

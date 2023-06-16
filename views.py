@@ -31,29 +31,45 @@ def add():
             db.session.add(new_con)
             db.session.commit()
 
-    username=session['username']   
+    username=session['username']  
+    credits=session['credits'] 
         
-    return render_template('add.html',username=username)
+    return render_template('add.html',username=username,credits=credits)
 
 @app.route('/search',methods = ['POST',"GET"])
 @login_required
 def search():
     username=session['username']
+    credits=Users.query.filter_by(name=username).first().credits
     if request.method=="POST":
         search=request.form.get("search")
         search_query=Conmen.query.filter_by(number=search).first()
-        if search_query:
-            image=search_query.image
-            image = base64.b64encode(image).decode('utf-8')
+        if credits==0:
+            flash("No credits")
+            
+            
+        else:
+            if search_query:
+                image=search_query.image
+                image = base64.b64encode(image).decode('utf-8')
+
+                credits=credits-10
+                query=Users.query.filter_by(name=username).first()
+                query.credits=credits
+            
+                db.session.commit()
+        
+        
             
 
-            return render_template("search.html", search_result=search_query,username=username,image=image)
-        else:
-            return flash("No user")
-            
+                return render_template("search.html", search_result=search_query,username=username,image=image,credits=credits)
+        
+            else:
+                return flash("No user")
+                
      
 
-    return render_template("search.html",username=username)
+    return render_template("search.html",username=username,credits=credits)
 
 @app.route('/logout',methods=["POST","GET"])
 def logout():
@@ -80,8 +96,9 @@ def dashboard():
         #write a script to send email
         pass
     username=session['username']
+    credits=session['credits']
     
-    return render_template("dashboard.html",username=username) 
+    return render_template("dashboard.html",username=username,credits=credits) 
 
 @app.route('/pay', methods = ["POST","GET"])
 @login_required
@@ -90,5 +107,6 @@ def pay():
         #write a script to send email
         pass
     username=session['username']
-    return render_template("pay.html",username=username) 
+    credits=session['credits']
+    return render_template("pay.html",username=username,credits=credits) 
 

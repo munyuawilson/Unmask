@@ -14,16 +14,21 @@ def login():
         
 
         query=Users.query.filter_by(email=email).first()
+        print(query)
         if query:
             if query.password==password:
                 session["username"]=query.name
                 user = Users.query.get(query.id)
                 login_user(user)
+                session["credits"]=query.credits
                 
 
                 return redirect('/dashboard')
+            else:
+                flash("Wrong Email or Password!")
+                
         else:
-            print("Wrong Email or Password!")
+            flash("Wrong Email or Password!")
     return render_template("login.html")
 @app.route('/signin',methods=['POST',"GET"])
 def signin():
@@ -37,7 +42,7 @@ def signin():
         query=Users.query.filter_by(email=email).first()
 
         if query:
-            print("User already there!")
+            flash("User already there!")
         else:
             new_user=Users(name=name, number=number,email=email,password=password)
             db.session.add(new_user)
