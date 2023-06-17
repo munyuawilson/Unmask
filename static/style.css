@@ -12,10 +12,10 @@ body{
     flex-direction: column;
 }
 nav a h2{
-    color: blue;
+    color: #03a9f4;
 }
 .link{
-    background-color: blue;
+    background-color: #03a9f4;
     border-radius: 30px;
     
 
@@ -56,7 +56,7 @@ nav a h2{
 }
 .col h2{
     text-align: center;
-    color: blue;
+    color: #03a9f4;
     padding-top: 20px;
 }
 .col-pa{
