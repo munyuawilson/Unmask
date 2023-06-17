@@ -15,7 +15,7 @@ def login():
 
         query=Users.query.filter_by(email=email).first()
         print(query)
-        if query:
+        if query!=None:
             if query.password==password:
                 session["username"]=query.name
                 user = Users.query.get(query.id)
@@ -28,7 +28,7 @@ def login():
                 flash("Wrong Email or Password!")
                 
         else:
-            flash("Wrong Email or Password!")
+            flash("No search user!")
     return render_template("login.html")
 @app.route('/signin',methods=['POST',"GET"])
 def signin():
@@ -44,15 +44,13 @@ def signin():
         if query:
             flash("User already there!")
         else:
-            if query.number==int(number):
-                flash("Number already there")
-            else:
-                new_user=Users(name=name, number=number,email=email,password=password,credits=30)
-                db.session.add(new_user)
-                db.session.commit()
+            
+            new_user=Users(name=name, number=number,email=email,password=password,credits=30)
+            db.session.add(new_user)
+            db.session.commit()
                 
                 
-                flash("Account created!")
+            flash("Account created!")
 
 
     return render_template("signup.html")

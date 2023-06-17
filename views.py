@@ -47,10 +47,11 @@ def search():
     if request.method=="POST":
         search=request.form.get("search")
         search_query=Conmen.query.filter_by(number=search).first()
-        if credits==0:
+        if credits==0 or None:
             flash("No credits")
             
-            
+        elif credits==None:
+            flash("No credits")    
         else:
             if search_query:
                 image=search_query.image
