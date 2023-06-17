@@ -20,7 +20,7 @@ def login():
                 session["username"]=query.name
                 user = Users.query.get(query.id)
                 login_user(user)
-                session["credits"]=query.credits
+                session["email"]=query.email
                 
 
                 return redirect('/dashboard')
@@ -44,11 +44,15 @@ def signin():
         if query:
             flash("User already there!")
         else:
-            new_user=Users(name=name, number=number,email=email,password=password)
-            db.session.add(new_user)
-            db.session.commit()
-            
-            return redirect("/dashboard")
+            if query.number==int(number):
+                flash("Number already there")
+            else:
+                new_user=Users(name=name, number=number,email=email,password=password,credits=30)
+                db.session.add(new_user)
+                db.session.commit()
+                
+                
+                flash("Account created!")
 
 
     return render_template("signup.html")

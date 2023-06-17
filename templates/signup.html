@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup: Unmask</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="/static/favicon_io/site.webmanifest">
+<link rel="icon" type="image/png" href="/static/favicon_io/favicon.ico">
+
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
@@ -33,19 +39,7 @@
               </ul>
             </div>
           </nav>
-          {% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <div class="container">
-            {% for message in messages %}
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong>Warning!</strong> {{ message }}
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-                
-            {% endfor %}
-        </div>
-    {% endif %}
-{% endwith %}
+          
           <div class="container">
             <div class="row justify-content-center mt-5">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -85,6 +79,19 @@
                       <button type="submit" class="btn btn-primary btn-block ">Signup</button>
                     </form>
                     <br>
+                    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        
+            {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+                
+            {% endfor %}
+        
+    {% endif %}
+{% endwith %}
                     <a href="{{url_for('login')}}">Already have an account?</a>
                   </div>
                 </div>

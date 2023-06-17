@@ -31,8 +31,10 @@ def add():
             db.session.add(new_con)
             db.session.commit()
 
-    username=session['username']  
-    credits=session['credits'] 
+    email=session['email'] 
+    username=session['username'] 
+    credits=Users.query.filter_by(email=email).first().credits
+    
         
     return render_template('add.html',username=username,credits=credits)
 
@@ -40,7 +42,8 @@ def add():
 @login_required
 def search():
     username=session['username']
-    credits=Users.query.filter_by(name=username).first().credits
+    email=session['email'] 
+    credits=Users.query.filter_by(email=email).first().credits
     if request.method=="POST":
         search=request.form.get("search")
         search_query=Conmen.query.filter_by(number=search).first()
@@ -54,7 +57,8 @@ def search():
                 image = base64.b64encode(image).decode('utf-8')
 
                 credits=credits-10
-                query=Users.query.filter_by(name=username).first()
+                
+                query=Users.query.filter_by(email=email).first()
                 query.credits=credits
             
                 db.session.commit()
@@ -65,7 +69,7 @@ def search():
                 return render_template("search.html", search_result=search_query,username=username,image=image,credits=credits)
         
             else:
-                return flash("No user")
+                flash("No search result")
                 
      
 
@@ -96,7 +100,9 @@ def dashboard():
         #write a script to send email
         pass
     username=session['username']
-    credits=session['credits']
+    email=session['email'] 
+    credits=Users.query.filter_by(email=email).first().credits
+    
     
     return render_template("dashboard.html",username=username,credits=credits) 
 
@@ -107,6 +113,8 @@ def pay():
         #write a script to send email
         pass
     username=session['username']
-    credits=session['credits']
+    email=session['email'] 
+    credits=Users.query.filter_by(email=email).first().credits
+    
     return render_template("pay.html",username=username,credits=credits) 
 
