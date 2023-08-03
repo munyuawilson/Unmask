@@ -11,18 +11,21 @@ body{
     display: flex;
     flex-direction: column;
 }
+
 nav a h2{
     color: #03a9f4;
 }
-.link{
-    background-color: #03a9f4;
-    border-radius: 30px;
-    
+
+ul li a:hover{
+    background-color:whitesmoke;
+    text-decoration: underline;
 
 }
-.link:hover{
-    background-color:whitesmoke;
+nav a h2:hover{
+color:whitesmoke;
+text-decoration: underline;
 }
+
 .nav-item{
     padding: 30px 30px;
 }
