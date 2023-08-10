@@ -3,13 +3,11 @@ A website for recording online scammers. Making Online transactions safer
 
 ![image](https://github.com/munyuawilson/Unmask/assets/98756995/bc8c3ad3-3189-4f8b-8e26-75c6aed057d0)
 
+![image](https://github.com/munyuawilson/Unmask/assets/98756995/bb5d82b4-8a37-46bd-a805-0b920c8632f6)
 
 ![image](https://github.com/munyuawilson/Unmask/assets/98756995/c3f9b765-c96b-4330-a85f-222f98c436c7)
 
-![image](https://github.com/munyuawilson/Unmask/assets/98756995/91cf3dda-4158-476f-bbb9-c14d3f940e91)
 
-
-![image](https://github.com/munyuawilson/Unmask/assets/98756995/eba4a4ab-90f5-45d7-ba2e-4a91297b929e)
 
 
 
