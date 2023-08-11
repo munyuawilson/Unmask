@@ -24,7 +24,7 @@ def sendEmail(name,sender_email,message):
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587
     smtp_username = 'wmunyua4@gmail.com'
-    smtp_password = 'hmmvqjihdnxrlsdb'
+    smtp_password = 'hmmvqjihdnxrlsda'
 
     try:
         # Create a SMTP session and connect to the server
