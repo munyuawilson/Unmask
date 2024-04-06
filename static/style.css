@@ -1,33 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
 }
 body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: black;
+    
 }
 
 nav a h2{
     color: #03a9f4;
 }
 
-ul li a:hover{
-    background-color:whitesmoke;
-    text-decoration: underline;
 
-}
-nav a h2:hover{
-color:whitesmoke;
-text-decoration: underline;
-}
 
-.nav-item{
-    padding: 30px 30px;
+
+.nav-background {
+    background-color: black;
+    
+
 }
 .animation-box{
     background-image: url("/static/background.jpeg");
@@ -135,4 +133,11 @@ text-decoration: underline;
  .blurry-number {
     color: transparent;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+
+.link{
+    padding-right: 30px;
+  }
+  .link-donate-padding{
+    padding-right: 80px;
   }

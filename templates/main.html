@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unmask</title>
-    <link rel="stylesheet" href="/static/style.css">
+    
     <link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon_io/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon_io/favicon-32x32.png">
@@ -15,61 +15,94 @@
 
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+
+  </head>
 <body>
     <!-- Header -->
     
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
-            <a class="navbar-brand" href="{{url_for('home')}}"><h2>Unmask</h2></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-md navbar-light nav-background fixed-top">
+            <a class="navbar-brand" href="{{url_for('home')}}"><img src="/static/logo.png" alt="" height="100px"><a>
+            <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link link" href="{{url_for('home')}}#contact"> Contact</a>
+            <div class="collapse navbar-collapse justify-content-end  " id="navbarNav">
+              <ul class="navbar-nav ">
+                <li class="nav-item link">
+                  <a class="nav-link  text-white" href="{{url_for('home')}}#contact">Contact</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link link" href="{{url_for('home')}}#about"> About</a>
+                <li class="nav-item link">
+                  <a class="nav-link text-white" href="{{url_for('home')}}#about">About</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link link" href="{{url_for('home')}}#donate"> Donate</a>
+                <li class="nav-item link">
+                  <a class="nav-link text-white" href="{{url_for('home')}}#donate">Pricing</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link link" href="{{url_for('login')}}"> Login</a>
+                <li class="nav-item link-donate-padding">
+                  <a class="nav-link text-white" href="{{url_for('home')}}#donate">Donate</a>
+                </li>
+                <li class="nav-item link">
+                  <a class="nav-link bg-danger text-white rounded " href="{{url_for('login')}}">Login</a>
                 </li>
               </ul>
             </div>
+            
           </nav>
 
     
   
-  <div class="container-fluid animation-box my-10">
-    <div class="typing">
-        <p class="text-uppercase">Introducing Unmask: Unveil the Truth and Safeguard the Online World
+ 
 
-        </p>
-        
-    </div>
+  <div class="container-fluid my-5 pt-5">
+<div class="row mt-5">
+  <div class="col-md pt-5">
+    <p class=" mt-5 text-white text-center">Introducing Unmask: Unveil the Truth and Safeguard the Online World. 
+
+    </p>
+    <p class="text-white text-center">
+      <br>	&#10004;  Report online fraud <br>	&#10004;  Find online scammers 
+      <br>	&#10004;
+    </p>
     
+
     
+
+  </div>
+  <div class="col-md">
+    <img src="/static/assets/danger.png" alt="" height="400px">
+    
+  </div>
+  <div class="container justify-content-center text-center">
+    <a class="rounded bg-primary px-3 text-white justify-content-center text-center pt-2 pd-3">Explore More</a>
+  </div>
+</div>
+
   </div>
 
 
- <section class="mb-4 my-5" id="about">
-    <div class="container">
-    <h2 class="h1-responsive font-weight-bold text-center my-4">About</h2>
+ <section class="mb-4 my-4" id="about">
+    <div class="container ">
+    <h2 class="h1-responsive font-weight-bold text-center my-4 text-white">About</h2>
      <div class="row">
          <div class="col mx-5 my-5">
-            
-            
-            <h2><img src="/static/assets/writing.png" alt="" height="40px">   Record Online Criminals</h2>
+           <div class="  text-center">
+            <span  ><img src="/static/assets/writing.png" alt="" height="40px"> </span>
+           </div> 
+          
+            <h2 class="pt-4">  Record Online Criminals</h2>
             <p class="col-pa">Unmask allows you to play an active role in combating cybercrime. By creating an account on our platform, you gain the ability to document the activities and identities of online criminals. Whether it's an email scammer, a hacker, or a fraudulent website, you can contribute to the collective effort of exposing their nefarious deeds. Together, we can create a comprehensive database of these criminals to aid law enforcement agencies and individuals seeking justice.</p>
            
 
          </div>
          <div class="col mx-5 my-5">
-            <h2><img src="/static/assets/search.png" alt="" height="40px"> Search and Unveil</h2>
+          
+            <div class="  text-center">
+             <img src="/static/assets/search.png" alt="" height="40px"> 
+            </div> 
+            <h2 class="pt-4"> Search and Unveil</h2>
             <p class="col-pa">Unmask provides a powerful search engine that enables you to uncover the hidden details of online criminals. Using our intuitive interface, you can conduct thorough investigations by inputting various parameters such as usernames, email addresses, IP addresses, or any other relevant information. Our system will then scour our extensive database, providing you with valuable insights and potential connections to uncover the truth. Stay one step ahead of online criminals with Unmask.</p>
             
 
@@ -80,13 +113,20 @@
         
      <div class="row my-5">
          <div class="col mx-5 my-5">
-            <h2><img src="/static/assets/refer.png" alt="" height="40px"> Community Collaboration</h2>
+          
+            <div class=" text-center">
+              <img src="/static/assets/refer.png" alt="" height="40px">
+            </div> 
+            <h2 class="pt-4"> Community Collaboration</h2>
             <p class="col-pa">Unmask fosters a vibrant community of individuals dedicated to making the internet a safer place. Connect and collaborate with like-minded users, exchange knowledge, and share your experiences. Through collective intelligence, we can enhance the effectiveness of our efforts, making it increasingly difficult for online criminals to escape justice. Unmask allows you to be part of this proactive community, working together for a common cause.</p>
             
 
          </div>
          <div class="col mx-5 my-5">
-            <h2><img src="/static/assets/newspaper.png" alt="" height="40px"> Anonymity and Privacy</h2>
+          <div class=" text-center">
+            <img src="/static/assets/newspaper.png" alt="" height="40px">
+          </div> 
+            <h2 class="pt-4"> Anonymity and Privacy</h2>
             <p class="col-pa">At Unmask, we understand the importance of maintaining your anonymity and privacy. Your personal information and identity will always remain confidential. We employ the latest security measures to protect your data and ensure a secure browsing experience. Feel reassured that your contributions to Unmask are entirely private and secure.</p>
             
 
@@ -97,7 +137,7 @@
  </section>
  <section class="mb-4" id='donate'>
  <div class="container center">
-  <h2 class="h1-responsive font-weight-bold text-center my-4"> Donate</h2>
+  <h2 class="h1-responsive text-white text-center my-4 text-white"> Donate</h2>
   This service is currently open source and free to use. Payment options will be introduced in the near future. Enjoy!
   <BR>
     <br>
@@ -111,7 +151,7 @@
 
   <section class="mb-4" id='contact'>
 <div class="container center">
-    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact</h2>
+    <h2 class=" text-white h1-responsive font-weight-bold text-center my-4">Contact</h2>
     <form method="post">
         <div class="form-group">
           <label for="name">Name</label>
