@@ -43,7 +43,3 @@ class Conmen(db.Model):
         self.social_media=social_media
         self.reason=reason
         self.image=image
-
-
-    
-
