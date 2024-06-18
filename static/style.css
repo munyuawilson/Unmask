@@ -2,17 +2,22 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    
     font-family: "Roboto", sans-serif;
     font-weight: 100;
     font-style: normal;
 }
 body{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  
+    
     background-color: black;
     
+}
+.link a:hover{
+color:#ed0e0e;
+}
+.explore{
+  text-decoration: none;
 }
 
 nav a h2{
@@ -47,14 +52,7 @@ nav a h2{
 .footer-content{
     text-align: center;
 }
-.col{
-    background-color:black;
-    border-radius: 30px;
-    color: white;
-    
-    justify-content: center;
-    
-}
+
 .col h2{
     text-align: center;
     color: #03a9f4;
@@ -67,17 +65,16 @@ nav a h2{
 #padding{
     padding-top: 100px;
 }
-.container{
-    margin-top: 70px;
-    
-    
-}
+
 .custom-rounded{
     border-radius: 30px;
     background-color:#343a40; 
     color: white;
     
     
+  }
+  .trust-pilot{
+    padding-left: 300px;
   }
   
 .custom-card{
@@ -144,8 +141,8 @@ nav a h2{
 
 
   section.pricing {
-    background: black;
-    background: linear-gradient(to right,black, #0062E6);
+    
+    background: linear-gradient(to left,black, #0062E6);
   }
   
   .pricing .card {
