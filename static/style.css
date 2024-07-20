@@ -142,8 +142,15 @@ nav a h2{
 
   section.pricing {
     
-    background: linear-gradient(to left,black, #0062E6);
+    background: linear-gradient(to left,black, #052856);
   }
+  .bg-gradient{
+    background-color: #052856;
+  }
+  .bg-gradient:hover{
+    background-color: rgb(93, 89, 104);
+  }
+
   
   .pricing .card {
     border: none;
