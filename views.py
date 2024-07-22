@@ -3,9 +3,10 @@ from flask_login import login_user, logout_user, current_user, login_required
 from model import Users,db,Conmen
 from main import app
 from sendemail import sendEmail
+from flask_migrate import Migrate
 import base64
 import imghdr
-
+from intasend import APIService
 
 
 with app.app_context():
@@ -36,7 +37,7 @@ def add():
     credits=Users.query.filter_by(email=email).first().credits
     
         
-    return render_template('add.html',username=username,credits=credits)
+    return render_template('addd.html',username=username,credits=credits)
 
 @app.route('/search',methods = ['POST',"GET"])
 @login_required
@@ -53,7 +54,8 @@ def search():
         elif credits==None:
             flash("No credits")    
         else:
-            if search_query:
+            if search:
+             if search_query:
                 image=search_query.image
                 image = base64.b64encode(image).decode('utf-8')
 
@@ -67,14 +69,14 @@ def search():
         
             
 
-                return render_template("search.html", search_result=search_query,username=username,image=image,credits=credits)
+                return render_template("searchh.html", search_result=search_query,username=username,image=image,credits=credits)
         
             else:
                 flash("No search result")
                 
      
 
-    return render_template("search.html",username=username,credits=credits)
+    return render_template("searchh.html",username=username,credits=credits)
 
 @app.route('/logout',methods=["POST","GET"])
 def logout():
@@ -85,6 +87,7 @@ def logout():
 def home():
     if request.method=='POST':
         #write a script to send email
+        
         name=request.form.get('name')
         sender_email=request.form.get('email')
         message=request.form.get('message')
@@ -105,17 +108,28 @@ def dashboard():
     credits=Users.query.filter_by(email=email).first().credits
     
     
-    return render_template("dashboard.html",username=username,credits=credits) 
+    return render_template("dash.html",username=username,credits=credits) 
 
 @app.route('/pay', methods = ["POST","GET"])
 @login_required
 def pay():
     if request.method=='POST':
-        #write a script to send email
-        pass
+        number=request.form.get('phoneNumber')
+        Pricing=request.form.get('plan')
+        email=session['email'] 
+        print(Pricing)
+
+        publishable_key = "ISPubKey_live_6b6cfe86-303b-41f5-8152-022865f74d2f"
+
+        service = APIService(publishable_key=publishable_key,token='ISSecretKey_live_dab2a24c-a5a6-4f50-8c6f-eb5c8948be9f')
+
+        response = service.collect.mpesa_stk_push(phone_number='254'+number,
+                                  email=email, amount=10, narrative="Purchase")
+        print(response)
+        
     username=session['username']
     email=session['email'] 
     credits=Users.query.filter_by(email=email).first().credits
     
-    return render_template("pay.html",username=username,credits=credits) 
+    return render_template("payy.html",username=username,credits=credits) 
 

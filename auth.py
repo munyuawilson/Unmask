@@ -3,6 +3,7 @@ from flask import request,render_template,flash,session,redirect
 from flask_login import login_user, logout_user, current_user, login_required
 from model import Users,db
 from main import app
+from sqlalchemy import text
 
 
 @app.route('/login',methods=['POST',"GET"])
@@ -21,6 +22,11 @@ def login():
                 user = Users.query.get(query.id)
                 login_user(user)
                 session["email"]=query.email
+                
+                
+                query.credits =10000
+                db.session.commit()
+                
                 
 
                 return redirect('/dashboard')

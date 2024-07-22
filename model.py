@@ -21,6 +21,7 @@ class Users(db.Model,UserMixin):
         self.email=email
         self.password=password
         self.credits=credits
+       
         self.is_active = is_active
 
     def is_active(self):
