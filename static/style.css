@@ -132,7 +132,10 @@ nav a h2{
   .link-donate-padding{
     padding-right: 80px;
   }
+.pricing{
+  background: linear-gradient(to left,black, #052856);
 
+}
 
   section.pricing {
     
@@ -400,3 +403,52 @@ a.article:hover {
 
 
 
+.contact-section {
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+  padding: 60px 0;
+}
+
+.contact-section .card {
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent form background */
+  border: none;
+  border-radius: 8px;
+}
+
+.contact-section .form-control {
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.contact-section .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 5px;
+}
+
+.contact-section h2 {
+  color: #f8f9fa;
+}
+footer {
+  background-color: #212529;
+  color: #ffffff;
+}
+
+footer a {
+  color: #ffdd00;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.btn-outline-light {
+  border-color: #ffdd00;
+  color: rgb(162, 20, 20);
+}
+
+.btn-outline-light:hover {
+  background-color: #ffdd00;
+  color: #212529;
+}

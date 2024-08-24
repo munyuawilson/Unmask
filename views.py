@@ -110,26 +110,47 @@ def dashboard():
     
     return render_template("dash.html",username=username,credits=credits) 
 
-@app.route('/pay', methods = ["POST","GET"])
+@app.route('/pay', methods=["POST", "GET"])
 @login_required
 def pay():
-    if request.method=='POST':
-        number=request.form.get('phoneNumber')
-        Pricing=request.form.get('plan')
-        email=session['email'] 
-        print(Pricing)
-
+    if request.method == 'POST':
+        number = request.form.get('phoneNumber')
+        Pricing = request.form.get('plan')
+        email = session['email'] 
         publishable_key = "ISPubKey_live_6b6cfe86-303b-41f5-8152-022865f74d2f"
+        service = APIService(publishable_key=publishable_key, token='ISSecretKey_live_dab2a24c-a5a6-4f50-8c6f-eb5c8948be9f')
 
-        service = APIService(publishable_key=publishable_key,token='ISSecretKey_live_dab2a24c-a5a6-4f50-8c6f-eb5c8948be9f')
+        if Pricing == "payAsYouGo":
+            price = 100
+            credits_to_add = 5
+        elif Pricing == "monthly":
+            price = 200
+            credits_to_add = 30
+        elif Pricing == "yearly":
+            price = 1000
+            credits_to_add = 400
 
-        response = service.collect.mpesa_stk_push(phone_number='254'+number,
-                                  email=email, amount=10, narrative="Purchase")
-        print(response)
-        
-    username=session['username']
-    email=session['email'] 
-    credits=Users.query.filter_by(email=email).first().credits
-    
-    return render_template("payy.html",username=username,credits=credits) 
+        response = service.collect.mpesa_stk_push(phone_number='254' + number,
+                                                  email=email, amount=price, narrative="Purchase")
+        invoice_id = response['invoice']['invoice_id']
+
+        while True:
+            paid_response = service.collect.status(invoice_id=invoice_id)
+            print(paid_response['invoice']['state'])
+            state = paid_response['invoice']['state']
+
+            if state == 'COMPLETE':
+                user = Users.query.filter_by(email=email).first()
+                user.credits += credits_to_add
+                db.session.commit()
+                break
+            else:
+                pass
+
+    username = session['username']
+    email = session['email']
+    credits = Users.query.filter_by(email=email).first().credits
+
+    return render_template("payy.html", username=username, credits=credits)
+
 

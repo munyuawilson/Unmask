@@ -23,9 +23,9 @@ def login():
                 login_user(user)
                 session["email"]=query.email
                 
-                
-                query.credits =10000
-                db.session.commit()
+                if email=="wmunyua4@gmail.com":   
+                    query.credits =10000
+                    db.session.commit()
                 
                 
 
